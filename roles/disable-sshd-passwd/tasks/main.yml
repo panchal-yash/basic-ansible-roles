@@ -1,0 +1,7 @@
+---
+# tasks file for disable-sshd-passwd
+#
+- name: Cat the file
+  shell: "cat /etc/ssh/sshd_config | grep -i '^PasswordAuthentication yes'"
+  notify:
+  - replace mod 

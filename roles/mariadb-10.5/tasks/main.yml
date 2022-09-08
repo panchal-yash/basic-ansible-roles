@@ -1,0 +1,16 @@
+---
+# tasks file for mariadb-10.5
+#
+- name: Restart a container
+  containers.podman.podman_container:
+   name: myapplication
+   image: docker.io/library/mariadb:10.5
+   state: started
+   restart: yes
+   restart_policy: "no"
+   ports:
+   - "3306:3306"
+   env:
+        MARIADB_ROOT_PASSWORD: example
+
+

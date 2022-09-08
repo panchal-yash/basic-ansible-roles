@@ -1,0 +1,12 @@
+---
+  - name: Playbook
+    become: yes
+    become_user: root
+    hosts: localhost
+    connection: local 
+
+
+
+    roles:
+    - role: disable-sshd-passwd
+    - role: mariadb-10.5 

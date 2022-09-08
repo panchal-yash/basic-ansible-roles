@@ -1,0 +1,17 @@
+---
+# handlers file for disable-sshd-passwd
+
+- name: replace mod
+  replace:
+   path: /etc/ssh/sshd_config
+   regexp: "^PasswordAuthentication yes"
+   replace: "PasswordAuthentication no"
+  notify:
+  - restart sshd
+
+- name: restart sshd
+  ansible.builtin.service:
+   name: sshd
+   state: restarted
+
+
